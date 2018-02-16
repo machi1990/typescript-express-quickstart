@@ -1,27 +1,19 @@
 import {
-  interfaces,
-  getRouteInfo,
-  InversifyExpressServer,
-  request,
-  response,
-  next,
-  TYPE,
-  queryParam,
   controller,
   requestParam,
-  httpGet,
-  requestBody
+  httpGet
 } from 'inversify-express-utils';
 
-import { Container, injectable, inject } from 'inversify';
+import { inject } from 'inversify';
 import Greeter from '../services/contracts/greeter';
+import HelloWorldService from '../services/implementations/hello-world';
 
 @controller('/')
 export default class GreeterController {
-  constructor(@inject('HelloWorld') private helloWorldService: Greeter) {}
+  constructor(@inject(HelloWorldService) private helloWorldService: Greeter) {}
 
   @httpGet('hello/:name')
-  public sayHelloWorld(@requestParam('name') name: string): string {
+  public sayHello(@requestParam('name') name: string): string {
     return this.helloWorldService.greet(name);
   }
 }

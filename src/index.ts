@@ -14,7 +14,7 @@ import * as cookieParser from 'cookie-parser';
 
 const container = new Container();
 container.bind<GreeterController>(GreeterController).to(GreeterController);
-container.bind<Greeter>('HelloWorld').to(HelloWorldService);
+container.bind<Greeter>(HelloWorldService).to(HelloWorldService);
 
 const router = express.Router({
   caseSensitive: false,

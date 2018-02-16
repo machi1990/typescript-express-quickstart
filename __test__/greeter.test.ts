@@ -31,12 +31,12 @@ describe('Greater Controller', () => {
   });
 
   test('When sayHelloWorld called, then greet service called', () => {
-    new GreeterController(helloWorld).sayHelloWorld('');
+    new GreeterController(helloWorld).sayHello('');
     verify(mockedHelloWorld.greet('')).called();
   });
 
   test("Controller's sayHelloWorld sends the message it receives.", () => {
-    const greeting = new GreeterController(helloWorld).sayHelloWorld('Manyanda');
+    const greeting = new GreeterController(helloWorld).sayHello('Manyanda');
     expect(greeting).toBe('Manyanda');
   });
 });
