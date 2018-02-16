@@ -1,0 +1,19 @@
+{
+  "printWidth": 140,
+  "singleQuote": true,
+  "useTabs": false,
+  "trailingComma": "none",
+  "parser": "typescript",
+  "overrides": [
+    {
+      "files": [".prettierrc", "package.json", "tsconfig.json"],
+      "options": { "parser": "json" }
+    },
+    {
+      "files": ["./bin/www"],
+      "options": {
+        "parser": "babylon"
+      }
+    }
+  ]
+}
