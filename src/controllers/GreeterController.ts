@@ -6,14 +6,14 @@ import {
 
 import { inject } from 'inversify';
 import Greeter from '../services/contracts/greeter';
-import HelloWorldService from '../services/implementations/hello-world';
+import HelloGreeterService from '../services/implementations/hello-greeter';
 
 @controller('/')
 export default class GreeterController {
-  constructor(@inject(HelloWorldService) private helloWorldService: Greeter) {}
+  constructor(@inject(HelloGreeterService) private helloGreeterService: Greeter) {}
 
   @httpGet('hello/:name')
   public sayHello(@requestParam('name') name: string): string {
-    return this.helloWorldService.greet(name);
+    return this.helloGreeterService.greet(name);
   }
 }

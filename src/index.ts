@@ -4,7 +4,7 @@ import { InversifyExpressServer, getRouteInfo } from 'inversify-express-utils';
 import { Container } from 'inversify';
 import Greeter from './services/contracts/greeter';
 import GreeterController from './controllers/GreeterController';
-import HelloWorldService from './services/implementations/hello-world';
+import HelloGreeterService from './services/implementations/hello-greeter';
 
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
@@ -14,7 +14,7 @@ import * as cookieParser from 'cookie-parser';
 
 const container = new Container();
 container.bind<GreeterController>(GreeterController).to(GreeterController);
-container.bind<Greeter>(HelloWorldService).to(HelloWorldService);
+container.bind<Greeter>(HelloGreeterService).to(HelloGreeterService);
 
 const router = express.Router({
   caseSensitive: false,
